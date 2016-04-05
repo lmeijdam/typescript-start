@@ -6,7 +6,7 @@ In deze repository vind je de basis source code om te starten met TypeScript. In
 Voor deze workshop heb je in ieder geval nodig;
 - [NPM/Node](https://nodejs.org/en/)
 - Visual Studio 2013/2015 en/of [Visual Studio Code](https://code.visualstudio.com/)
-**Let op: de toegevoegde codevoorbeelden zijn gemaakt met Visual Studio Code**
+- **Let op: de toegevoegde codevoorbeelden zijn gemaakt met Visual Studio Code**
 
 
 ### Wat leer ik?
