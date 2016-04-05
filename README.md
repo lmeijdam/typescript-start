@@ -29,3 +29,9 @@ npm install typescript -g
 Wanneer TypeScript is geinstalleerd kun je beginnen aan de eerste module. 
 
 ### Succes!!
+
+#### Tips
+Om je alvast  tips te mogen geven voor Visual Studio Code.
+- Installeer de HTML5 snippets met CTRL + P > ext install html snippets
+- Gebruik de Command Prompt voor het compileren. Doe dit met SHIFT + CTRL + C of rechtermuisknop op de map > Open in Command Prompt 
+
