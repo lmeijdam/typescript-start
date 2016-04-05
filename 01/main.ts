@@ -6,6 +6,6 @@ class Main {
     }
 };
 
-var main = new Main("Hello, world!");
+var main = new Main("Hello, World!");
     
 document.body.innerHTML = main.saySomething();

@@ -34,7 +34,7 @@ Als 1 na laatste stap maken we nog even een index.html om een interface te geven
 
 Voor de oplettende onder jullie, je ziet dat de script tag verwijst naar main.js, maar we een main.ts bestand hebben. Dit klopt. We moeten TypeScript namelijk nog omzetten naar plain javascript. Dit doen we met het commando
 ```
-tsc main.ts
+tsc
 ```
 
 Met bovenstaand commando spreken we de TypeScript compiler aan. Open nu index.html en test of je de ingevulde waarde van 'new Main("waarde")' te zien krijgt op het scherm. 

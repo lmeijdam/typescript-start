@@ -1,6 +1,7 @@
 
 // https://github.com/TypeStrong/learn-typescript/blob/master/02-type-system-introduction/index.ts
 
+// Types
 enum Color { Red, Green, Blue }
 
 class Main {
@@ -27,4 +28,28 @@ class Main {
 
 var main = new Main("Hello, Microsoft mensen!");
 
-document.body.innerHTML = main.saySomething3();
+var element = document.getElementById("types");
+element.innerHTML = "test";
+
+// Interfaces
+
+interface IRunnable{
+    run(): void;
+}
+
+interface IBarkable{
+    bark(): string;
+}
+
+class Dog implements IBarkable, IRunnable{
+    run(){
+        console.log("I am running");
+        
+    }
+    
+    bark(){
+        return "Bark!";
+    }
+}
+
+// Inheritance
