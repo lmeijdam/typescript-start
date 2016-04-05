@@ -34,4 +34,4 @@ Wanneer TypeScript is geinstalleerd kun je beginnen aan de eerste module.
 Om je alvast  tips te mogen geven voor Visual Studio Code.
 - Installeer de HTML5 snippets met CTRL + P > ext install html snippets
 - Gebruik de Command Prompt voor het compileren. Doe dit met SHIFT + CTRL + C of rechtermuisknop op de map > Open in Command Prompt 
-
+- Wanneer je veelvoudig werkt aan .ts bestanden kun je met het commando tsc -w de bestanden in je map kunnen 'watchen' zo hoef je niet ieder keer te compileren.
