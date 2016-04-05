@@ -1,4 +1,4 @@
-# 01 - Starten met TypeScript
+## 01 - Starten met TypeScript
 
 Om te beginnen met TypeScript zorg je er eerst voor dat je TypeScript hebt geinstalleerd via de NPM (Node Package Manager). Dit installeer je globaal met het volgende commando; 
 
