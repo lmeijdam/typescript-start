@@ -12,61 +12,84 @@ interface IRunnable {
 
 abstract class AnimalBase {
     name: string;
+    private imgUrl: string;
 
-    constructor(name: string) {
+    constructor(name: string, imgUrl?: string) {
         this.name = name;
-        console.log("Created: " + name);        
+        this.imgUrl = imgUrl;
+
+        console.log("Created: " + name);
+    }
+
+    abstract action(): string;
+
+    AsHtml(): string {
+        return `
+        ${this.getLabel()}
+        ${this.getActionAsQuote()} 
+        `;
     }
     
-    abstract action() : string;
+    private getActionAsQuote(): string {
+        return `<blockquote><p>${this.action()}</p></blockquote>`;
+    }
+
+    private getLabel(): string {
+        if (!this.imgUrl)
+            return `<p><b>${name}</b></p>`;
+        return `<p>
+        <img src="${this.imgUrl}" height="100"/>
+        <p><b>${name}</b></p>
+        </p>`;
+    }
 }
 
 class Dog extends AnimalBase implements IRunnable {
-    constructor(name: string) {
-        super(name);
+    constructor(name: string, imgUrl?: string) {
+        super(name, imgUrl);
     }
 
     run() {
         return "I will keep on running";
     }
-    
-    action() : string {
+
+    action(): string {
         return this.run();
     }
 }
 
 class Bird extends AnimalBase implements IFlyable {
-    constructor(name: string) {
-        super(name);
+    constructor(name: string, imgUrl?: string) {
+        super(name, imgUrl);
     }
 
     fly() {
         return "I'd love to fly";
     }
-        
-    action() : string {
+
+    action(): string {
         return this.fly();
     }
 }
 
 class Fish extends AnimalBase implements ISwimmable {
-    constructor(name: string) {
-        super(name);
+    constructor(name: string, imgUrl?: string) {
+        super(name, imgUrl);
     }
 
     swim() {
         return "I love swimming";
     }
-    
-    action() : string {
+
+    action(): string {
         return this.swim();
     }
 }
 
 //var animal = new AnimalBase(); // Results in error because AnimalBase is abstract
-var Lassie = new Dog("Lassie");
-var Flipper = new Fish("Flipper");
-var Zazu = new Bird("Zazu");
+var Lassie = new Dog("Lassie", "http://cx.aos.ask.com/question/aq/700px-394px/kind-dog-lassie_870333c6a15c5d1b.jpg");
+var Flipper = new Fish("Flipper", "https://ryanlbrooks.files.wordpress.com/2011/06/dsc1024.jpg");
+var Zazu = new Bird("Zazu", "http://vignette4.wikia.nocookie.net/thelionkingstimonandpumbaa/images/3/38/Zazu_onrock.jpg/revision/latest?cb=20121111174415");
 
 // Lassie.fly() // Error
 // Zazu.run() // error
@@ -75,39 +98,18 @@ var parentContainer = document.createElement("div");
 
 // Dog
 var dogParagraph = document.createElement("div");
-dogParagraph.innerHTML = createHtml(Lassie, "http://cx.aos.ask.com/question/aq/700px-394px/kind-dog-lassie_870333c6a15c5d1b.jpg");
+dogParagraph.innerHTML = Lassie.AsHtml();
 
 // Bird
 var birdParagraph = document.createElement("div");
-birdParagraph.innerHTML = createHtml(Zazu, "http://vignette4.wikia.nocookie.net/thelionkingstimonandpumbaa/images/3/38/Zazu_onrock.jpg/revision/latest?cb=20121111174415");
+birdParagraph.innerHTML = Zazu.AsHtml();
 
 // Fish
 var fishParagraph = document.createElement("div");
-fishParagraph.innerHTML = createHtml(Flipper, "https://ryanlbrooks.files.wordpress.com/2011/06/dsc1024.jpg");
+fishParagraph.innerHTML = Flipper.AsHtml();
 
 parentContainer.appendChild(dogParagraph);
 parentContainer.appendChild(birdParagraph);
 parentContainer.appendChild(fishParagraph);
 
 document.body.appendChild(parentContainer);
-
-// Template
-function createHtml(animal: AnimalBase, imageUrl?: string): string {
-    return `
-    ${getLabel(animal.name, imageUrl)}
-    ${getQuote(animal.action())} 
-    `;
-}
-
-function getLabel(name: string, imageUrl?: string): string {
-    if (!imageUrl)
-        return `<p><b>${name}</b></p>`;
-    return `<p>
-    <img src="${imageUrl}" height="100"/>
-    <p><b>${name}</b></p>
-        </p>`;
-}
-
-function getQuote(action: string): string {
-    return `<blockquote><p>${action}</p></blockquote>`;
-}
