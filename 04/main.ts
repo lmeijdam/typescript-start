@@ -53,7 +53,7 @@ class Dog extends AnimalBase implements IRunnable {
         return "I will keep on running";
     }
 
-    action(): string {
+    action(){
         return this.run();
     }
 }
@@ -67,7 +67,7 @@ class Bird extends AnimalBase implements IFlyable {
         return "I'd love to fly";
     }
 
-    action(): string {
+    action() {
         return this.fly();
     }
 }
@@ -81,7 +81,7 @@ class Fish extends AnimalBase implements ISwimmable {
         return "I love swimming";
     }
 
-    action(): string {
+    action() {
         return this.swim();
     }
 }
