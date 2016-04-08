@@ -34,7 +34,7 @@ var numberElement2 = document.createElement("p");
 numberElement2.innerText = `Value from Generic2<number>; ${numberValue2.value}`;
 document.body.appendChild(numberElement2);
 
-// Practical example ; factory
+// Practical example ; Factory
 interface IMailItem {
     recipient: string;
 }
@@ -50,6 +50,12 @@ class EmailAppointment implements IMailItem {
     date: Date;
 }
 
+class EmailContact {
+    name: string;
+    address: string;
+    
+}
+
 // non-Generic Factory
 class NgMailItemFactory {
     create(mailType: { new (): IMailItem }) {
@@ -58,9 +64,11 @@ class NgMailItemFactory {
 }
 
 var ngMailFactory = new NgMailItemFactory(); // ng = non-generic
-var emailMessage = ngMailFactory.create(EmailMessage); // only recipient is accessable
-console.log(emailMessage instanceof EmailMessage); // true
-console.log(emailMessage instanceof EmailAppointment); // false
+var emailMessage1 = ngMailFactory.create(EmailMessage); // only recipient is accessable
+
+console.log(emailMessage1 instanceof EmailMessage); // true
+console.log(emailMessage1 instanceof EmailAppointment); // false
+// var contact1 = ngMailFactory.create(EmailContact); // this is possible if i add a recipient field. Which is weird.
 // Problem? Need a way to cast the message to EmailMessage to be able to edit the message.
 // <EmailMessage>emailMessage.message won't work.
 // emailMessage.message = "Test"; // Fail
@@ -78,41 +86,45 @@ emailMessageItem.message = "TestFrom";
 console.log(emailMessageItem.message); // will return TestFrom
 
 // Solution 2
-class Factory<T extends U, U> {
+class Factory<T> { 
     create(type: { new (): T}) {
         return new type();
     }
 }
+// This way you can create a Factory for ALL objects.
 
-var emailMessageFactory = new Factory<EmailMessage, IMailItem>(); // only add EmailMessage
-var emailAppointmentFactory = new Factory<EmailAppointment, IMailItem>(); // only add EmailAppointment
-//emailMessageFactory.create(EmailAppointment); // will not work
-emailMessageFactory.create(EmailMessage);
+var emailMessageFactory = new Factory<EmailMessage>(); // only add EmailMessage
+var emailAppointmentFactory = new Factory<EmailAppointment>(); // only add EmailAppointment
+var emailmessage2 = emailMessageFactory.create(EmailMessage);
+emailmessage2.message = "TestEmail";
+//var emailappointment2 = emailMessageFactory.create(EmailAppointment); // will not work
+var emailappointment2 = emailAppointmentFactory.create(EmailAppointment);
+emailappointment2.location = "Eindhoven";
 
 // Will do the job but you still need to give the type of the item you want to create. And if you want to make the emailMessageFactory do some custom stuff for the items it processes you
 
-// Solution 3 - I find this the best
-interface IFactory<T extends U, U>{
+// Solution 3 - I find this the most clean and SOLID solution
+interface IFactory<T>{
     create() : T 
 }
 
-class MessageFactory implements IFactory<EmailMessage, IMailItem>{
+class MessageFactory implements IFactory<EmailMessage>{
     create() { 
         return new EmailMessage();
     }
     
-    fillData(item: EmailMessage) : EmailMessage{
+    SetDefaultMessageData(item: EmailMessage) : EmailMessage{
         item.message = "EmailMessage";
         return item as EmailMessage;
     }
 }
 
-class AppointmentFactory implements IFactory<EmailAppointment, IMailItem>{    
+class AppointmentFactory implements IFactory<EmailAppointment>{    
     create() { 
         return new EmailAppointment();
     }
     
-    fillData(item: EmailAppointment) : EmailAppointment{        
+    SetDefaultAppointmentData(item: EmailAppointment) : EmailAppointment{        
         item.location = "Eindhoven";
         return item as EmailAppointment;
     }
@@ -120,12 +132,12 @@ class AppointmentFactory implements IFactory<EmailAppointment, IMailItem>{
 
 var messageFactory = new MessageFactory();
 var email1 = messageFactory.create(); // will be an EmailMessage
-email1 = messageFactory.fillData(email1);
+email1 = messageFactory.SetDefaultMessageData(email1);
 console.log(email1.message); // EmailMessage
 
 var appointmentFactory = new AppointmentFactory();
 var appointment1 = appointmentFactory.create(); // will be an EmailAppointment
-appointment1 = appointmentFactory.fillData(appointment1);
+appointment1 = appointmentFactory.SetDefaultAppointmentData(appointment1);
 console.log(appointment1.location); // Eindhoven
 
 
