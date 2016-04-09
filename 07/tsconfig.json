@@ -1,9 +1,20 @@
+// {
+//     "compilerOptions": {
+//         "target": "es5",
+//         "module": "commonjs",
+//         "noImplicitAny": true,
+//         "removeComments": true,
+//         "preserveConstEnums": true,
+//         "sourceMap": true
+//     }
+// }
+
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "amd", // NODIG VOOR REQUIRE
+        "target": "es5",
+        "sourceMap": true,
         "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "sourceMap": true
+        "removeComments": true
     }
 }
