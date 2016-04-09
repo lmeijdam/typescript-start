@@ -1,38 +1,36 @@
-// Simple Generic Implementation
-
-class Generic1<T>{
-    private _value: T;
-
-    constructor(value: T) {
-        this._value = value;
-    }
-    getValue(): T {
-        return this._value;
-    }
-    setValue(value: T) {
-        this._value = value;
+// Simple example
+class NonGenericClass{
+    constructor(public value: any){        
     }
 }
-// Short implementation
-class Generic2<T>{
+
+class GenericClass<T>{
     constructor(public value: T) { }
 }
 
+// non generic any -> Problem scenario
+var anyValue = new NonGenericClass("hello");
+anyValue.value = true;
+anyValue.value = 5;
+// will all work and do not give errors
+
 // string
-var stringValue1 = new Generic1<string>("stringValue1");
+var stringValue1 = new GenericClass<string>("stringValue1");
 //stringValue1.setValue(5); // error because the type given was 
 
 var stringElement1 = document.createElement("p");
-stringElement1.innerText = `Value from Generic1<string>; ${stringValue1.getValue()}`;
+stringElement1.innerText = `Value from Generic1<string>; ${stringValue1.value}`;
 document.body.appendChild(stringElement1);
 
 // number
-var numberValue2 = new Generic2<number>(5);
+var numberValue2 = new GenericClass<number>(5);
 //numberValue2.value = true; // will not work because true is of type Boolean.
 
 var numberElement2 = document.createElement("p");
 numberElement2.innerText = `Value from Generic2<number>; ${numberValue2.value}`;
 document.body.appendChild(numberElement2);
+
+
 
 // Practical example ; Factory
 interface IMailItem {
@@ -53,6 +51,7 @@ class EmailAppointment implements IMailItem {
 class EmailContact {
     name: string;
     address: string;
+    //recipient: string;
     
 }
 
@@ -68,14 +67,14 @@ var emailMessage1 = ngMailFactory.create(EmailMessage); // only recipient is acc
 
 console.log(emailMessage1 instanceof EmailMessage); // true
 console.log(emailMessage1 instanceof EmailAppointment); // false
-// var contact1 = ngMailFactory.create(EmailContact); // this is possible if i add a recipient field. Which is weird.
+// var contact1 = ngMailFactory.create(EmailContact); // this is possible if i add a recipient field.
 // Problem? Need a way to cast the message to EmailMessage to be able to edit the message.
 // <EmailMessage>emailMessage.message won't work.
 // emailMessage.message = "Test"; // Fail
 
 // Solution 1
-class MailItemFactory {
-    create<T extends IMailItem>(type: { new (): T }) {
+class MailItemFactory { 
+    create<T>(type: { new (): T }) {
         return new type();
     }
 }
@@ -139,30 +138,6 @@ var appointmentFactory = new AppointmentFactory();
 var appointment1 = appointmentFactory.create(); // will be an EmailAppointment
 appointment1 = appointmentFactory.SetDefaultAppointmentData(appointment1);
 console.log(appointment1.location); // Eindhoven
-
-
-
-
-
-
-
-
-
-
-
-// var button = document.createElement("button");
-// button.onclick = () => {
-//     callback(() => {
-//         console.log("test");
-//     });
-// }
-
-// function callback(cb: Function): void {
-//     cb();
-// }
-
-// document.body.appendChild(button);
-
 // interface ICallback<T> {
 //     (param: T): any;
 // }
