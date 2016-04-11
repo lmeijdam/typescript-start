@@ -3,7 +3,7 @@
 Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (Node Package Manager) met onderstaand commando:
 
      ```
-     npm install -g typescript
+     npm install typescript -g
      ```  
    *NB: Download NPM via [nodejs.org](https://nodejs.org/en/)*
 
@@ -100,7 +100,7 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
   constructor(name: string, age: Number) {
   ```
 16. Nu zien we in de constructor ook meldingen verschijnen onder de this.name en this.age. In TS is het niet meer nodig om de input parameters weg te schrijven naar de public parameters.
-  Dit kunnen we gemakkelijk in 1x schrijven door voor 'name' en 'age' de public modified te noteren. 
+  Dit kunnen we gemakkelijk in 1x schrijven door voor 'name' en 'age' de public modifier te noteren. 
   ```javascript 
   constructor(public name: string, public age: Number) { }
   ```
@@ -119,7 +119,7 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
   Hiermee zien we niet alleen de werking van TypeScript maar ook het voordeel voor de programmeur. Je kan nu direct zien als je een type verkeerd toewijst.
    
 18. Wanneer we nu echter de index.html pagina openen zien we niets dan een blanko pagina.
-  Dit komt omdat we in stap 14 het main.js bestand hernoemt hebben naar main.ts. Geen van de browsers kan op het moment overweg met TypeScript. 
+  Dit komt omdat we in stap 14 het main.**js** bestand hernoemt hebben naar main.**ts**. Geen van de browsers kan op het moment overweg met TypeScript. 
   Dit betekend dat we nog 1 kleine extra stap moeten doen en dat is het compileren van TypeScript naar JavaScript.
   
 19. Open hiervoor command prompt (Windows, Run: cmd.exe) en navigeer naar je root folder. Zorg dat je IN de root folder zit!
@@ -127,5 +127,35 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
   ```
   tsc
   ```
+  Met dit commando spreken we de TypeScript Compiler (tsc) aan. Deze compileert alle *.ts bestanden naar *.js bestanden.
+21. Zoals je ziet krijg je een foutmelding, nuja, niet echt een foutmelding maar meer een lijst met opties. 
+  We kunnen er voor kiezen om een parameter mee te geven aan het TSC commando, maar dat doen we niet, bijvoorbeeld
+  ```
+  tsc main.ts
+  ```
+  Wat we willen is dat het commando gewoon zelf in de folder kijkt welke TS bestanden er omgezet kunnen worden.
+  Hiertoe moeten we een tsconfig.json configuratie bestan aanmaken.
+22. Maak in de hoofdmap een nieuwe bestand aan en noem deze 'tsconfig.json'. Sla het bestand op en open deze.
+23. In de tsconfig.json kopieer je vervolgens onderstaand code. We gaan in deze les niet verder in op het configuratie bestand. 
+  ```json
+  {
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true
+      }
+  }
+  ```
+24. Sla het bestand op en keer terug naar command prompt. Run daar nogmaals het 'tsc' commando.
+  Zoals je ziet gaat het nu wel goed en zal het main.**ts** bestand worden geconverteerd naar een main.**js** bestand.
+25. Bekijk de index.html pagina in de browser. Nu werkt alles weer als 'vanouds'.
+26. Omdat je natuurlijk niet voor elke wijziging terug wilt naar je command prompt om het 'tsc' commando te runnen is er een watcher beschikbaar.
 
-  Met dit commando spreken we de TypeScript Compiler (tsc) aan. Deze compileert alle *.ts bestanden naar *.js bestanden. 
+  Deze zorgt er voor dat zodra een *.ts bestand gewijzigd wordt in de aangegeven folder de typescript compiler het bestand direct omzet naar een JavaScript tegenhanger.
+  
+  Je start de TypeScript Watcher door in Command Prompt te navigeren naar de root folder en daar onderstaand commando te runnen (zorg er dus wel voor dat je een tsconfig.json aangemaakt hebt)
+  ```
+  tsc -w
+  ```
