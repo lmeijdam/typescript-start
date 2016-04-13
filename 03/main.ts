@@ -1,48 +1,115 @@
-enum Colors {
-    'Apple Green',
-    'Diamond Silver',
-    'Candy Red',
-    'Chocolate Brown',
-    'Stone Cole Black'
+interface ISwimmable {
+    swim(): string;
 }
 
-class Car {
-    brand: string;
-    type: string;
-    doors: Number;
-    color: Colors;
+interface IFlyable {
+    fly(): string;
+}
 
-    constructor(brand: string, type: string, doors: Number, color: Colors) {
-        this.brand = brand;
-        this.type = type;
-        this.doors = doors;
-        this.color = color;
+interface IRunnable {
+    run(): string;
+}
 
-        console.log("Car created: " + brand + " " + type + " color: " + color.toString() + "(doors: " +  doors + " )" );
+abstract class AnimalBase {
+    name: string;
+    private imgUrl: string;
+
+    constructor(name: string, imgUrl?: string) {
+        this.name = name;
+        this.imgUrl = imgUrl;
+
+        console.log("Created: " + name);
+    }
+
+    abstract action(): string;
+
+    AsHtml(): string {
+        return `
+        ${this.getLabel()}
+        ${this.getActionAsQuote()} 
+        `;
+    }
+    
+    private getActionAsQuote(): string {
+        return `<blockquote><p>${this.action()}</p></blockquote>`;
+    }
+
+    private getLabel(): string {
+        if (!this.imgUrl)
+            return `<p><b>${name}</b></p>`;
+        return `<p>
+        <img src="${this.imgUrl}" height="100"/>
+        <p><b>${name}</b></p>
+        </p>`;
     }
 }
 
-class Garage{
-    doorOpen: boolean;
-    cars: Array<Car>;
-    
-    constructor(){
-        this.doorOpen = false;
-        this.cars = [];
+class Dog extends AnimalBase implements IRunnable {
+    constructor(name: string, imgUrl?: string) {
+        super(name, imgUrl);
     }
-        
-    closeDoor(){
-        this.doorOpen = false;
+
+    run() {
+        return "I will keep on running";
     }
-    
-    openDoor(){
-        this.doorOpen = true;
+
+    action(){
+        return this.run();
     }
-    
-    addCar(car: Car){
-        var currentAmountOfCars = this.cars.length;
-        this.cars[currentAmountOfCars + 1] = car;
-    }    
 }
 
-// todo: HTML show, if the door is open. If open, show the amount of cars in the garage and the brands and colors of these cars.
+class Bird extends AnimalBase implements IFlyable {
+    constructor(name: string, imgUrl?: string) {
+        super(name, imgUrl);
+    }
+
+    fly() {
+        return "I'd love to fly";
+    }
+
+    action() {
+        return this.fly();
+    }
+}
+
+class Fish extends AnimalBase implements ISwimmable {
+    constructor(name: string, imgUrl?: string) {
+        super(name, imgUrl);
+    }
+
+    swim() {
+        return "I love swimming";
+    }
+
+    action() {
+        return this.swim();
+    }
+}
+
+//var animal = new AnimalBase(); // Results in error because AnimalBase is abstract
+var Lassie = new Dog("Lassie", "http://cx.aos.ask.com/question/aq/700px-394px/kind-dog-lassie_870333c6a15c5d1b.jpg");
+var Flipper = new Fish("Flipper", "https://ryanlbrooks.files.wordpress.com/2011/06/dsc1024.jpg");
+var Zazu = new Bird("Zazu", "http://vignette4.wikia.nocookie.net/thelionkingstimonandpumbaa/images/3/38/Zazu_onrock.jpg/revision/latest?cb=20121111174415");
+
+// Lassie.fly() // Error
+// Zazu.run() // error
+
+var parentContainer = document.createElement("div");
+
+// Dog
+var dogParagraph = document.createElement("div");
+dogParagraph.innerHTML = Lassie.AsHtml();
+
+// Bird
+var birdParagraph = document.createElement("div");
+birdParagraph.innerHTML = Zazu.AsHtml();
+
+// Fish
+var fishParagraph = document.createElement("div");
+fishParagraph.innerHTML = Flipper.AsHtml();
+
+parentContainer.appendChild(dogParagraph);
+parentContainer.appendChild(birdParagraph);
+parentContainer.appendChild(fishParagraph);
+
+document.body.appendChild(parentContainer);
