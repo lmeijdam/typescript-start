@@ -12,12 +12,11 @@ Voor deze workshop heb je in ieder geval nodig;
 ### Wat leer ik?
 In de verschillende modules ga je met de volgende onderwerpen aan de slag:
 - Module 01: Hello TypeScript; Een basis voor je eigen TypeScript App. D
-- Module 02: Types; Alle verschillende soorten types van TypeScript. D
-- Module 03: Classes; Object georienteerd ontwikkelen in TypeScript. D
-- Module 04: Interfaces en Inheritance; Het gebruiken van interfaces en overerving van classes. L
-- Module 05: Generics; Het toepassen van het gelijknamige Generics van C#. L
-- Module 06: Modules; Werken met modules binnen TypeScript. D
-- Module 07: CRUD app; Het combineren van eerder opgedane kennis in een kleine applicatie. L
+- Module 02: Types, Classes; Object georienteerd ontwikkelen in TypeScript. D
+- Module 03: Interfaces en Inheritance; Het gebruiken van interfaces en overerving van classes. L
+- Module 04: Generics; Het toepassen van het gelijknamige Generics van C#. L
+- Module 05: Modules; Werken met modules binnen TypeScript. D
+- Module 06: CRUD app; Het combineren van eerder opgedane kennis in een kleine applicatie. L
 - **GEEN nieuwe taal; Let er op. TypeScript is geen nieuwe taal. Plain JavaScript kun je ook gewoon schrijven in de bijbehorende .ts bestanden. TypeScript is alleen een toevoeging op het bestaande JavaScript.**
 
 
