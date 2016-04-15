@@ -7,17 +7,17 @@ In de vorige module heb je kennis gemaakt met Classes. Om nu nog meer object geo
 2. Open deze map nu met Visual Studio Code (of gebruik deze map als bestemming voor je project in Visual Studio 2015).
 3. Maak een nieuw configuratiebestand aan genaamd tsconfig.json. Vul deze met de volgende inhoud:
 
-```javascript
-{
-    "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "sourceMap": true
+    ```javascript
+    {
+        "compilerOptions": {
+            "module": "commonjs",
+            "noImplicitAny": true,
+            "removeComments": true,
+            "preserveConstEnums": true,
+            "sourceMap": true
+        }
     }
-}
-```
+    ```
 Dit is het configuratiebestand die vaker gebruikt is/zal worden in de volgende oefeningen.
 
 ### Interfaces 
@@ -26,11 +26,11 @@ Om te beginnen gaan we beginnen met een simpele oefening waarbij we een interfac
 1. Maak een nieuw bestand aan genaamd 'main.ts'. In dit bestand gaan we te werk.
 2. Boven in het bestand schrijf je het interface keyword gevolgd met IShootable(). Met 1 simpele methode 'shoot()' van het type 'void'. 
 3. Als je dit gedaan hebt zal je code er als volgt uitzien:
-```javascript
-interface IShootable() {
-    shoot(): void;   
-}
-```
+    ```javascript
+    interface IShootable() {
+        shoot(): void;   
+    }
+    ```
 4. Nu gaan we deze interface implementeren in een Class. Maak een nieuwe class genaamd 'Gun' en gebruik het keyword 'implements' om vervolgens de IShootable interface te gebruiken.
 5. Je krijgt nu een melding als je met je muis over 'Gun' gaat, welke inmiddels rode krinkels bevat. Als je de melding leest zie je; *'Class 'Gun' incorrectly implements interface 'IShootable'. Property 'shoot' is missing in type 'Gun'.'*.
 6. Dit is de correcte melding want in de class Gun heb je de methode shoot() nog niet geimplementeerd.
@@ -38,21 +38,16 @@ interface IShootable() {
 8. Je ziet nu dat de melding verdwenen is en je kunt dit nu gaan testen.
 9. Maak een nieuwe instantie aan van 'Gun' en roep vervolgens de methode 'shoot' aan van dat object.
 10. Maak een html pagina aan genaamd index.html of kopieer de index.html uit de vorige module en vul deze met:
-```html
- <!DOCTYPE html>
- <html>
-   <head><title>Module 03: Interfaces en Inheritance</title></head>
-   <body>
-     <script src='main.js'></script>
-   </body>
- </html>
- ```
-
-11. Open het command prompt en compileer je main.ts bestand met het commando
-```
-tsc
-```    
-Nu wordt de compiler aangeroepen en zie je dat er een .js bestand aangemaakt wordt. 
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head><title>Module 03: Interfaces en Inheritance</title></head>
+    <body>
+        <script src='main.js'></script>
+    </body>
+    </html>
+    ```
+11. Open het command prompt en compileer je main.ts bestand met het commando 'tsc'. Nu wordt de compiler aangeroepen en zie je dat er een .js bestand aangemaakt wordt. 
 12. Open vervolgens het index.html bestand in je favoriete browser en bekijk de console. Je ziet nu dat de door jouw opgegeven tekst in stap 7 getoond wordt.
 13. Open nu het 'main.js' bestand en je zult zien dat de interface niet meegecompileerd is. Dit is niet erg. JavaScript kan simpelweg niet overweg met 'interface'.
 
@@ -64,10 +59,10 @@ Nu je kennis hebt gemaakt met interfaces is het tijd voor overerving. Ook hier z
 3. Voor dat we hier een invulling aan gaan geven gaan we eerst de bestaande class 'Gun' uitbreiden met een constructor. In de constructor van 'Gun' voeg je als parameter **'public name: string'** toe. Hiermee zorg je dat 'name' beschikbaar wordt voor elke instantie van 'Gun'.
 4. Pas de output in de 'shoot' methode aan zodat de naam getoond wordt in combinatie met wat tekst zodra deze functie aangeroepen wordt.
 5. Vervolgens gebruik je het keyword 'extends' in de 'HandGun' class en vul je dit aan met 'Gun'. Je code voor 'Handgun' moet er nu als volgt uit zien:
-```javascript
-class Handgun extends Gun {
-}
-```
+    ```javascript
+    class Handgun extends Gun {
+    }
+    ```
 6. Geef nu een constructor op voor 'Handgun' met als parameter **'name: string'**. Je ziet nu dat er de volgende melding verschijnt; *'Constructors for derived classes must contain a 'super' call.'*.
 7. Dit geeft aan dat je de 'super(name)' call moet verwerken in de constructor. Gelukkig kun je de constructor weglaten in 'Handgun' en je ziet dat het nog steeds werkt.
 8. Voeg nu ook voor 'Rifle' de 'extends Gun' toe om ook 'Rifle' te laten over erven.
