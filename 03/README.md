@@ -26,6 +26,7 @@ Om te beginnen gaan we beginnen met een simpele oefening waarbij we een interfac
 1. Maak een nieuw bestand aan genaamd 'main.ts'. In dit bestand gaan we te werk.
 2. Boven in het bestand schrijf je het interface keyword gevolgd met IShootable(). Met 1 simpele methode 'shoot()' van het type 'void'. 
 3. Als je dit gedaan hebt zal je code er als volgt uitzien:
+
     ```javascript
     interface IShootable() {
         shoot(): void;   
@@ -38,6 +39,7 @@ Om te beginnen gaan we beginnen met een simpele oefening waarbij we een interfac
 8. Je ziet nu dat de melding verdwenen is en je kunt dit nu gaan testen.
 9. Maak een nieuwe instantie aan van 'Gun' en roep vervolgens de methode 'shoot' aan van dat object.
 10. Maak een html pagina aan genaamd index.html of kopieer de index.html uit de vorige module en vul deze met:
+
     ```html
     <!DOCTYPE html>
     <html>
@@ -59,6 +61,7 @@ Nu je kennis hebt gemaakt met interfaces is het tijd voor overerving. Ook hier z
 3. Voor dat we hier een invulling aan gaan geven gaan we eerst de bestaande class 'Gun' uitbreiden met een constructor. In de constructor van 'Gun' voeg je als parameter **'public name: string'** toe. Hiermee zorg je dat 'name' beschikbaar wordt voor elke instantie van 'Gun'.
 4. Pas de output in de 'shoot' methode aan zodat de naam getoond wordt in combinatie met wat tekst zodra deze functie aangeroepen wordt.
 5. Vervolgens gebruik je het keyword 'extends' in de 'HandGun' class en vul je dit aan met 'Gun'. Je code voor 'Handgun' moet er nu als volgt uit zien:
+
     ```javascript
     class Handgun extends Gun {
     }
