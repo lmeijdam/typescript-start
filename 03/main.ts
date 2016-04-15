@@ -1,3 +1,34 @@
+// Simple Interfaces Example
+interface IShootable {
+    shoot(): void;
+}
+
+class Gun implements IShootable {
+    constructor(public name: string){
+        
+    }
+    
+    shoot() {
+        console.log(this.name  + " is shooting!!");        
+    }
+}
+
+// Simple Inheritance Example
+class Handgun extends Gun { }
+
+class Rifle extends Gun { }
+
+var p250 = new Handgun("p250");
+p250.shoot();
+var M4a1 = new Rifle("M4a1");
+M4a1.shoot();
+
+console.log(p250 instanceof Gun); // true
+console.log(p250 instanceof Rifle); // false
+console.log(p250 instanceof Handgun); // true
+console.log(M4a1 instanceof Rifle); // true
+
+// Full implementation of Inheritance and Interfaces
 interface ISwimmable {
     swim(): string;
 }
@@ -21,7 +52,7 @@ abstract class AnimalBase {
         console.log("Created: " + name);
     }
 
-    abstract action(): string;
+    abstract action(): any;
 
     AsHtml(): string {
         return `
