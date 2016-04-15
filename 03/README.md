@@ -86,4 +86,4 @@ Je hebt nu wat basis kennis gemaakt met zowel overerving als met interfaces. Maa
 - Je kunt gaan spelen met overerving tussen interfaces. Gebruik hiervoor ook weer het keyword 'extends'. Je zult hier zien dat er in de afgeleidde interface extra properties en functions kunnen worden toegevoegd die gebruikt kunnen worden.
 - In het meegeleverde 'main.ts' bestand zijn wat andere voorbeelden gegeven voor de combinatie tussen interfaces en overerving. Je kunt dit eventueel kopieren en er zelf mee spelen.
 
-In de volgende (module)[https://github.com/lmeijdam/typescript-start/tree/master/04] ga je aan de slag met Generics. 
+In de volgende [module](https://github.com/lmeijdam/typescript-start/tree/master/04) ga je aan de slag met Generics. 
