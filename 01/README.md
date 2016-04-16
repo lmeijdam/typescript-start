@@ -8,11 +8,11 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
    *NB: Download NPM via [nodejs.org](https://nodejs.org/en/)*
 
 
-1. Maak op een locatie naar keuze een folder aan en noem deze 'HelloTypeScript'. Vanuit deze folder beginnen we het 'project'.
+1. Maak op een locatie naar keuze een folder aan en noem deze '01'. Vanuit deze folder beginnen we het 'project'.
 
-2. Maak in de root van deze folder een nieuw bestaand aan en noem deze 'main.js'. (De .ts extensie gebruiken we later) 
+2. Maak in de root van deze folder een nieuw bestaand aan en noem deze; `main.js`.  (de .ts extensie gebruiken we nu nog niet) 
 
-3. In het main.js bestand maak je een Main class met een constructor die twee parameters accepteert, 'name' en 'age. 
+3. In het `main.js` bestand maak je een 'Main' class met een constructor die twee parameters accepteert, 'name' en 'age. 
   ```javascript
   class Main {
       constructor(name, age) {
@@ -43,7 +43,7 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
       ```javascript
        document.body.innerHTML = main.run();  
       ```  
- Je uiteindelijke main.js zou er als volgt uit moeten zien:
+ Je uiteindelijke `main.js` zou er als volgt uit moeten zien:
 
  ```javascript
  class Main {
@@ -62,19 +62,19 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
  document.body.innerHTML = main.run();
  ```
 
-9. In de root folder maak je een nieuwe bestand aan, noem deze index.html.
-10. Voer vervolgens onderstaande HTML code in en sla het index.html bestand op. 
+9. In de root folder maak je een nieuwe bestand aan, noem deze `index.html`.
+10. Voer vervolgens onderstaande HTML code in en sla het `index.html` bestand op. 
  ```html
  <!DOCTYPE html>
  <html>
-   <head><title> TypeScript Demo </title></head>
+   <head><title>01: TypeScript Demo </title></head>
    <body>
      <script src='main.js'></script>
    </body>
  </html>
  ```
 
-11. Open Windows Verkenner en dubbelklik op het index.html bestand zodat deze geopend wordt in de browser. Je ziet nu een naam met tussenhaakjes je leeftijd staan.
+11. Open Windows Verkenner en dubbelklik op het `index.html` bestand zodat deze geopend wordt in de browser. Je ziet nu een naam met tussenhaakjes je leeftijd staan.
   ## Hi, JENAAM (88)
 
 12. Open nu de main.js code en wijzig de initialisatie van de Main class als volgt:
@@ -94,17 +94,21 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
   
 14. We beginnen met het hernoemen van het main.js bestand naar main.ts (waarbij .ts natuurlijk verwijst naar TypeScript)
 
-15. Wanneer we nu het main.ts bestand openen zien we al direct vele meldingen onder de code verschijnen. Waaronder bijvoorbeeld 'Parameter 'name' explicitly has an 'any' type' 
+15. Wanneer we nu het main.ts bestand openen zien we al direct vele meldingen onder de code verschijnen. Waaronder bijvoorbeeld; *'Parameter 'name' explicitly has an 'any' type'* 
   Dit betekend dat het type van de parameter 'name' niet gedefinieerd is. Om in TypeScript het type aan te geven van de parameter zetten we achter de parameternaam een dubbele punt met daarachter een spatie gevolgd door de typenaam. Zoals onderstaand:
   ```javascript 
   constructor(name: string, age: Number) {
   ```
-16. Nu zien we in de constructor ook meldingen verschijnen onder de this.name en this.age. In TS is het niet meer nodig om de input parameters weg te schrijven naar de public parameters.
-  Dit kunnen we gemakkelijk in 1x schrijven door voor 'name' en 'age' de public modifier te noteren. 
-  ```javascript 
-  constructor(public name: string, public age: Number) { }
+16. Nu zien we in de constructor ook meldingen verschijnen onder de 'this.name' en 'this.age'. We moeten in TypeScript publieke parameter expliciet definieren. 
+  Dit doen we binnen de Main class net voor de constructor. 
+  ```javascript
+      class Main {
+        name: string;
+        age: Number;
+        
   ```
-  Hierdoor kan de rest van de constructor weg en blijft een enkele regel over.
+
+ 
   
 17. Wanneer we nu onderstaande regel aanroepen krijgen we direct een tweetal foutmeldingen: 
   ```javascript
@@ -136,18 +140,8 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
   Wat we willen is dat het commando gewoon zelf in de folder kijkt welke TS bestanden er omgezet kunnen worden.
   Hiertoe moeten we een tsconfig.json configuratie bestan aanmaken.
 22. Maak in de hoofdmap een nieuwe bestand aan en noem deze 'tsconfig.json'. Sla het bestand op en open deze.
-23. In de tsconfig.json kopieer je vervolgens onderstaand code. We gaan in deze les niet verder in op het configuratie bestand. 
-  ```json
-  {
-    "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "sourceMap": true
-      }
-  }
-  ```
+23. In het `tsconfig.json` bestand  schrijf je een open accolade `{` direct gevolgd door een sluit accolade `}`.   
+  
 24. Sla het bestand op en keer terug naar command prompt. Run daar nogmaals het 'tsc' commando.
   Zoals je ziet gaat het nu wel goed en zal het main.**ts** bestand worden geconverteerd naar een main.**js** bestand.
 25. Bekijk de index.html pagina in de browser. Nu werkt alles weer als 'vanouds'.

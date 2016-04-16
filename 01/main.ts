@@ -11,7 +11,13 @@
 // document.body.innerHTML = main.saySomething();
 
 class Main {
-    constructor(public name: string, public age: Number) { }
+    name: string;
+    age: Number;
+   
+    constructor(name: string, age: Number) {
+             this.name = name;
+             this.age = age;
+    }
     
     run() {
         return "<h1> Hi, " + this.name + " (" + this.age + ")</h1>";

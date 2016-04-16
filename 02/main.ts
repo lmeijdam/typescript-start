@@ -8,16 +8,16 @@ enum Colors {
 }
 
 class Car {
-    brand: string;
-    type: string;
-    doors: Number;
-    color: Colors;
+    // brand: string;
+    // type: string;
+    // doors: Number;
+    // color: Colors;
 
-    constructor(brand: string, type: string, doors: Number, color: Colors) {
-        this.brand = brand;
-        this.type = type;
-        this.doors = doors;
-        this.color = color;
+    constructor(public brand: string, public type: string, public doors: Number, public color: Colors) {
+        // this.brand = brand;
+        // this.type = type;
+        // this.doors = doors;
+        // this.color = color;
 
         console.log("Car created: " + brand + " " + type + ". Color: " + Colors[color] + ". Doors: " +  doors);
     }
@@ -32,23 +32,23 @@ class Garage{
         this.cars = [];
     }
         
-    closeDoor(){
+    closeDoor() : void  {
         this.doorOpen = false;
-        this.showDoorStatus();
     }
     
-    openDoor(){
+    openDoor() : void {
         this.doorOpen = true;
-        this.showDoorStatus();
     }
     
-    showDoorStatus(){
+    getDoorStatus() : string {
         
-        if(this.doorOpen) {
-            console.log("Door status: Open");
-        }
-        else {
-            console.log("Door status: Closed");
+        switch(this.doorOpen)
+        {
+            case true:
+                return "Door is open";
+            // break; Normaal gebruik je een 'break' om het einde van de 'case' aan te geven. Maar omdat we hier retourneren is dat niet nodig.
+            case false:
+                return "Door is closed";   
         }
     }
     
@@ -85,16 +85,17 @@ class Main{
     run(){       
         this.garage.addCar(this.car1);
         this.garage.openDoor();
+        console.log(this.garage.getDoorStatus());
         this.garage.addCar(this.car2);
         this.garage.addCar(this.car3);
         this.garage.closeDoor();
+        console.log(this.garage.getDoorStatus());
     }
 }
-
 
 var main = new Main();
 main.run();
 
-console.log("Garage amount of cars: " + main.garage.cars.length);
+console.log("Amount of cars in garage: " + main.garage.cars.length);
 
 console.log("Brand of Car1: " + main.car1.brand); // Throws TypeScript Exception: Property 'car1' is private and only accessible within class 'main'.
