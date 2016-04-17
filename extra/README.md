@@ -10,3 +10,4 @@ TypeScript handige links (ook voor eigen naslag)
 - http://www.jbrantly.com/typescript-and-webpack/
 - https://github.com/typings/typings <-- BELANGRIJKE
 - http://davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/
+- https://github.com/Microsoft/TypeScript/issues/3320 (Enum export as default issue)

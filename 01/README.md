@@ -107,8 +107,6 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
         age: Number;
         
   ```
-
- 
   
 17. Wanneer we nu onderstaande regel aanroepen krijgen we direct een tweetal foutmeldingen: 
   ```javascript

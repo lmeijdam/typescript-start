@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "amd", // NODIG VOOR RequireJS,
+        "target": "es5",
+        "sourceMap": true,
         "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "sourceMap": true
+        "removeComments": true
     }
 }

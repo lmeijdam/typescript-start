@@ -64,10 +64,10 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
   
   Schrijf **bovenaan** in het `main.ts` bestand onderstaande code: 
   
-  *NB: Het is belangrijk dat de Colors `Enum` **bovenaan**, dus nog voor de Car class, gedefinieerd wordt omdat anders de Car de `Colors` niet kan vinden.*
+  *NB: Het is belangrijk dat de Color `Enum` **bovenaan**, dus nog voor de Car class, gedefinieerd wordt omdat anders de Car de `Color` niet kan vinden.*
 
     ```
-    enum Colors {
+    enum Color {
         Green,
         Gray,
         Red,
@@ -87,15 +87,15 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
         brand: string;
         type: string;
         doors: Number;
-        color: Colors;
+        color: Color;
 
-        constructor(public brand: string, type: string, doors: Number, color: Colors) {
+        constructor(public brand: string, type: string, doors: Number, color: Color) {
             this.brand = brand;
             this.type = type;
             this.doors = doors;
             this.color = color;
 
-            console.log("Car created: " + brand + " " + type + ". Color: " + Colors[color] + ". Doors: " +  doors);
+            console.log("Car created: " + brand + " " + type + ". Color: " + Color[color] + ". Doors: " +  doors);
         }
     }
   ```
@@ -110,8 +110,8 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
   
   ```javascript
     class Car {
-            constructor(public brand: string, public type: string, public doors: Number, public color: Colors) {
-                console.log("Car created: " + brand + " " + type + ". Color: " + Colors[color] + ". Doors: " +  doors);
+            constructor(public brand: string, public type: string, public doors: Number, public color: Color) {
+                console.log("Car created: " + brand + " " + type + ". Color: " + Color[color] + ". Doors: " +  doors);
         }
     }
   ```
@@ -143,9 +143,9 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
 14. In de constructor van de 'Main' class instantieren we nu een drietal auto's. Dit mag je natuurlijk naar wens doen maar voor het gemak krijg je **gratis** een aantal voorbeelden:
   ```javascript
     constructor(){           
-        this.car1 = new Car("Nissan", "350Z", 2, Colors.Black);
-        this.car2 = new Car("Alfa Romeo", "Giulia", 4, Colors.Red);
-        this.car3 = new Car("BMW", "i8", 2, Colors.White);    
+        this.car1 = new Car("Nissan", "350Z", 2, Color.Black);
+        this.car2 = new Car("Alfa Romeo", "Giulia", 4, Color.Red);
+        this.car3 = new Car("BMW", "i8", 2, Color.White);    
     }
   ```
   
