@@ -16,10 +16,10 @@ anyValue.value = 5;
 
 // string
 var stringValue1 = new GenericClass<string>("stringValue1");
-//stringValue1.setValue(5); // error because the type given was 
+//stringValue1.value = 5; // error because the type given was 
 
 var stringElement1 = document.createElement("p");
-stringElement1.innerText = `Value from Generic1<string>; ${stringValue1.value}`;
+//stringElement1.innerText = `Value from Generic1<string>; ${stringValue1.value}`;
 document.body.appendChild(stringElement1);
 
 // number
@@ -27,7 +27,7 @@ var numberValue2 = new GenericClass<number>(5);
 //numberValue2.value = true; // will not work because true is of type Boolean.
 
 var numberElement2 = document.createElement("p");
-numberElement2.innerText = `Value from Generic2<number>; ${numberValue2.value}`;
+//numberElement2.innerText = `Value from Generic2<number>; ${numberValue2.value}`;
 document.body.appendChild(numberElement2);
 
 
@@ -50,7 +50,7 @@ class EmailAppointment implements IMailItem {
 
 class EmailContact {
     name: string;
-    address: string;
+    //address: string;
     //recipient: string;
     
 }
@@ -109,42 +109,24 @@ interface IFactory<T>{
 
 class MessageFactory implements IFactory<EmailMessage>{
     create() { 
-        return new EmailMessage();
-    }
-    
-    SetDefaultMessageData(item: EmailMessage) : EmailMessage{
-        item.message = "EmailMessage";
-        return item as EmailMessage;
+        var objectToReturn = new EmailMessage();
+        objectToReturn.message = "EmailMessage";
+        return objectToReturn;
     }
 }
 
 class AppointmentFactory implements IFactory<EmailAppointment>{    
     create() { 
-        return new EmailAppointment();
-    }
-    
-    SetDefaultAppointmentData(item: EmailAppointment) : EmailAppointment{        
-        item.location = "Eindhoven";
-        return item as EmailAppointment;
+        var objectToReturn = new EmailAppointment();
+        objectToReturn.location = "Eindhoven";
+        return objectToReturn;
     }
 }
 
 var messageFactory = new MessageFactory();
 var email1 = messageFactory.create(); // will be an EmailMessage
-email1 = messageFactory.SetDefaultMessageData(email1);
 console.log(email1.message); // EmailMessage
 
 var appointmentFactory = new AppointmentFactory();
 var appointment1 = appointmentFactory.create(); // will be an EmailAppointment
-appointment1 = appointmentFactory.SetDefaultAppointmentData(appointment1);
 console.log(appointment1.location); // Eindhoven
-// interface ICallback<T> {
-//     (param: T): any;
-// }
-
-// function callbackTyped(cb: ICallback<string>) {
-//     cb("testfromcb");
-// }
-
-// callbackTyped((msg) => console.log(msg));
-
