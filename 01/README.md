@@ -2,9 +2,8 @@
 
 Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (Node Package Manager) met onderstaand commando:
 
-     ```
      npm install typescript -g
-     ```  
+
    *NB: Download NPM via [nodejs.org](https://nodejs.org/en/)*
 
 
