@@ -8,6 +8,6 @@ TypeScript handige links (ook voor eigen naslag)
 - https://basarat.gitbooks.io/typescript/content/index.html
 - https://github.com/codeBelt/TypeScript-AMD-Boilerplate
 - http://www.jbrantly.com/typescript-and-webpack/
-- https://github.com/typings/typings <-- BELANGRIJKE
+- https://github.com/typings/typings
 - http://davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/
 - https://github.com/Microsoft/TypeScript/issues/3320 (Enum export as default issue)
