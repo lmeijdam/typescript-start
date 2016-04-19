@@ -213,7 +213,15 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
     }
   ```
 
-19. Natuurlijk willen we ook de auto daadwerkelijk bewaren in de `Array<Car>`. We kunnen objecten toeven aan een `Array` door eerst het aantal items in de `Array` op te halen zodat we vervolgens dit nummer kunnen gebruiken om de locatie van het object in de `Array` te kunnen bepalen. 
+20. Natuurlijk willen we ook de auto daadwerkelijk bewaren in de `Array<Car>`. We kunnen objecten toeven aan een `Array` door eerst het aantal items in de `Array` op te halen zodat we vervolgens dit nummer kunnen gebruiken om de locatie van het object in de `Array` te kunnen bepalen. 
+ 
+   ```javascript
+    var currentAmountOfCars = this.cars.length;
+    this.cars[currentAmountOfCars] = car;
+  ```
+  
+  Dit wordt dan:
+ 
   ```javascript
     addCar(car: Car){
         if(this.doorOpen) {
@@ -228,12 +236,9 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
     }
   ```
   
-  ```javascript
-    var currentAmountOfCars = this.cars.length;
-    this.cars[currentAmountOfCars] = car;
-  ```
 
-20. Zoals je in de vorige stap hebt kunnen lezen moeten we, voordat we een auto kunnen 'opslaan' in de garage, de garagedeur kunnen openen en ogischerwijs willen we de deur ook weer kunnen sluiten. 
+
+21. Zoals je in de vorige stap hebt kunnen lezen moeten we, voordat we een auto kunnen 'opslaan' in de garage, de garagedeur kunnen openen en ogischerwijs willen we de deur ook weer kunnen sluiten. 
 
   Hiertoe voegen we een tweetal functies toe 'closeDoor' en 'openDoor' die beiden niets retourneren. Deze markeren we daarom met het `void` keyword. 
 
@@ -251,7 +256,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
         }
   ```
 
-21. Nu we de deur kunnen openen en sluiten is het ook wel handig om de status van de deur op te halen. 
+22. Nu we de deur kunnen openen en sluiten is het ook wel handig om de status van de deur op te halen. 
 
   Dit schrijven we in een functie genaamd 'getDoorStatus' welke in dit geval een tekst retourneert. Deze markeren we daarom met het 'string' keyword.
 
@@ -273,7 +278,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
     }
   ```
 
-22. Nu zijn we er bijna. We hebben nu aan class 'Car', een class 'Garage' en een 'Main' class. In de 'Main' class definieren en instantieren we al een aantal auto's. 
+23. Nu zijn we er bijna. We hebben nu aan class 'Car', een class 'Garage' en een 'Main' class. In de 'Main' class definieren en instantieren we al een aantal auto's. 
 
   Dit gaan we ook voor de garage nog even doen.
 
@@ -296,7 +301,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
     }
   ```
 
-23. We schrijven in de 'Main' class nog een laatste functie genaamd 'run' die de eerste auto in de garage probeert te rijden, 
+24. We schrijven in de 'Main' class nog een laatste functie genaamd 'run' die de eerste auto in de garage probeert te rijden, 
 
   dan de garagedeur opent, vervolgens auto 2 en 3 in de garage parkeert en tot slot de garagedeur weer sluit. 
   
@@ -322,14 +327,14 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
     }
   ```
 
-24. Tot slot roepen we de 'run' functie aan ná initialisatie van de 'Main' class onderin het TypeScript bestand.
+25. Tot slot roepen we de 'run' functie aan ná initialisatie van de 'Main' class onderin het TypeScript bestand.
 
   ```javascript
     var main = new Main();
     main.run();
   ```
   
-25. Run de TypeScript Compiler (Command Prompt: ~foldername> tsc) en ververs de index.html pagina in de browser. Bekijk in de console (F12) het resultaat.
+26. Run de TypeScript Compiler (Command Prompt: ~foldername> tsc) en ververs de index.html pagina in de browser. Bekijk in de console (F12) het resultaat.
 
   ```
     Car created: Nissan GTR R35. Color: Black. Doors: 2
@@ -342,7 +347,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
     Door is closed
   ```
 
-26. Omdat we de garage een `public` modifier hebben meegegeven kunnen we in TypeScript, na het aanroepen van de 'main.run()' code, in de garage 'kijken' hoeveel auto's er nu daadwerkelijk in de garage staan.
+27. Omdat we de garage een `public` modifier hebben meegegeven kunnen we in TypeScript, na het aanroepen van de 'main.run()' code, in de garage 'kijken' hoeveel auto's er nu daadwerkelijk in de garage staan.
   
   ```javascript
     console.log("Amount of cars in garage: " + main.garage.cars.length);
