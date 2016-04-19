@@ -53,7 +53,8 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
     }
     ```
 
-8. Wanneer we nu een `Car` object willen aanmaken hoeven we niets anders te doen dan onderstaande code aan te roepen.
+8. Wanneer we nu een `Car` object willen aanmaken hoeven we niets anders te doen dan onderstaande code aan te roepen. 
+  *Dit is een voorbeeld en hoef je niet over te nemen.  
     ```javascript
     var car = new Car("Nissan", "GTR R35", 2);
     ```
@@ -118,8 +119,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
   
 12. Onder de 'Car' class maken we nu, net als in hoofdstuk 1, een 'Main' class aan. Dit is onze 'entry' class. We schrijven hier direct een lege constructor bij:
   ```javascript
-    class Main{
-   
+    class Main {
         constructor(){ }        
     }
   ```
@@ -130,7 +130,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
 
   In plaats van een `public` **access modifier** gebruiken we hiervoor de `private` variant. :
   ```javascript
-    class Main{
+    class Main {
 
         private car1: Car;
         private car2: Car;
@@ -180,7 +180,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
     2. Een `Array` van `Car` objecten, welke de auto's in de garage onthoudt.
 
   ```javascript
-    class Garage{
+    class Garage {
         doorOpen: boolean;
         cars: Array<Car>;
     }
@@ -189,7 +189,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
 18. De constructor instantieert de 'doorOpen' parameter als `false` en een lege 'cars' array `[]`:
 
   ```javascript
-    class Garage{
+    class Garage {
         doorOpen: boolean;
         cars: Array<Car>;
         

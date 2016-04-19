@@ -126,7 +126,7 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
   Dit betekend dat we nog 1 kleine extra stap moeten doen en dat is het compileren van TypeScript naar JavaScript.
   
 19. Open hiervoor command prompt (Windows, Run: cmd.exe) en navigeer naar je root folder. Zorg dat je IN de root folder zit!
-20. Type vervolgens onderstaand command en ram op enter.
+20. Type vervolgens onderstaand command en druk op enter.
   ```
   tsc
   ```

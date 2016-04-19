@@ -61,7 +61,7 @@ Zowel de garage, de kleur enumeratie alsook de auto objecten schreven we allemaa
 
 6. Maak in de 'scripts' folder een nieuw bestand en noem deze `color.ts`. Knip vanuit het 'main.ts' bestand de 'Color' enum. 
 
-  Hiermee haal je dus de 'Color' enum uit het 'main.ts' bestand waardoor TypeScript direct allerlei foutmelding uitkotst, die lossen we zo op.
+  Hiermee haal je dus de 'Color' enum uit het 'main.ts' bestand waardoor TypeScript direct allerlei foutmelding geeft, die lossen we zo op.
 
 7. Omdat in deze workshop 'Color' het enige object is wat in het 'color.ts' bestand komt kunnen we aangeven dat 'Color' de default `export` is van het 'color.ts' bestand
   ```javascript
