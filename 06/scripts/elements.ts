@@ -11,6 +11,10 @@ module Elements {
         table.appendChild(tableRow);
     }
     
+    function deleteRowFromTable(table: HTMLElement, tableRow: HTMLElement) {
+        table.removeChild(tableRow);
+    }
+    
     function createTableColumn(name: any) : HTMLElement {
         var tableColumn = document.createElement("td");
         tableColumn.innerHTML = name;
@@ -45,7 +49,7 @@ module Elements {
         var row = document.getElementById(task.name);
         if(row === null) return;
         
-        tasksTable.removeChild(row);
+        deleteRowFromTable(tasksTable, row);
     }
 }
 

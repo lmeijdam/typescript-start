@@ -26,8 +26,6 @@ class Main {
     deleteTask(task: Task) {
         var index = this.tasks.indexOf(task);
         this.tasks.splice(index);
-
-        console.log(this.tasks);
     }
 
     deleteAllTasks() {
@@ -77,5 +75,7 @@ class Main {
     }
 }
 
+
+// init
 var main = new Main();
 main.run();
