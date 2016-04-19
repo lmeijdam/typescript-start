@@ -89,7 +89,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
         doors: Number;
         color: Color;
 
-        constructor(public brand: string, type: string, doors: Number, color: Color) {
+        constructor(brand: string, type: string, doors: Number, color: Color) {
             this.brand = brand;
             this.type = type;
             this.doors = doors;
@@ -104,7 +104,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
   
   Dit kunnen we gemakkelijker in 1x schrijven door voor de input parameters een `public` modifier te noteren. 
   ```javascript 
-  constructor(public brand: string, public type: string, public doors: Number, public color: Colors) {
+  constructor(public brand: string, public type: string, public doors: Number, public color: Color) {
   ```
   Hierdoor kan de rest van de constructor, als ook de property definities weg en blijft slecht onderstaande code over:
   

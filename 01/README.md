@@ -24,11 +24,13 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
   this.name = name;
   this.age = age;
   ```
+  
 5. Buiten de constructor, maar binnen de 'Main' class, schrijf je een functie genaamd 'run'. Deze bevat geen input parameters.
-```javascript
+  ```javascript
   run() {
   }
   ```
+
 6. Schrijf in de 'run' functie de volgende regel 'code'. Deze regel retourneert een HTML Heading-1 met de ingevoerde 'name' en 'age' properties.    
       ```javascript
        return "<h1> Hi, " + this.name + " (" + this.age + ")</h1>";  
@@ -84,7 +86,7 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
 13. Sla het gewijzigde main.js bestand op en open index.html opnieuw in je browser (of ververs de pagina, als je deze nog had laten staan) Het resultaat is dan:
   ## Hi, 1234 (JENAAM)
 
-  Zoals je ziet maakt het JavaScript geen drol uit of je nu eerst een tekst (je naam) of eerst een getal (je leeftijd) invoert. De code draait zonder problemen en ook de editor vind het allemaal best.
+  Zoals je ziet maakt het JavaScript niets uit of je nu eerst een tekst (je naam) of eerst een getal (je leeftijd) invoert. De code draait zonder problemen en ook de editor vind het allemaal best.
   
   Met TypeScript kunnen we niet het probleem van de omgekeer parameters weghalen maar wel kunnen we voorkomen dat jij als programmeur deze fout maakt. 
   TypeScript zorgt er alleen voor dat in de editor gecontroleerd wordt of alle types (what's in a name) correct zijn opgevoerd.
@@ -106,7 +108,7 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
         age: Number;
         
   ```
-  
+ 
 17. Wanneer we nu onderstaande regel aanroepen krijgen we direct een tweetal foutmeldingen: 
   ```javascript
   var main = new Main(1234, "JENAAM");
@@ -136,7 +138,7 @@ Voordat we aan de slag kunnen met TypeScrypt installeer je TypeScript via NPM (N
   ```
   Wat we willen is dat het commando gewoon zelf in de folder kijkt welke TS bestanden er omgezet kunnen worden.
   Hiertoe moeten we een tsconfig.json configuratie bestan aanmaken.
-22. Maak in de hoofdmap een nieuwe bestand aan en noem deze 'tsconfig.json'. Sla het bestand op en open deze.
+22. Maak een nieuw bestand aan en noem deze 'tsconfig.json'. Sla het bestand op en open deze.
 23. In het `tsconfig.json` bestand  schrijf je een open accolade `{` direct gevolgd door een sluit accolade `}`.   
   
 24. Sla het bestand op en keer terug naar command prompt. Run daar nogmaals het 'tsc' commando.
