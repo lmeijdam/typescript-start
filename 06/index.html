@@ -7,25 +7,25 @@
     <!--<script data-main="scripts/main" src="scripts/require.js"></script>-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="main.js" /></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="scripts/main.js" /></script>
 
 
     <div class="container">
         <div class="page-header">
-            <h1>People<small>the TypeScript way</small></h1>
+            <h1>Tasks<small>the TypeScript way (in progress)</small></h1>
         </div>
 
 
@@ -35,10 +35,14 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Add/Edit People</h3>
+                        <h3 class="panel-title">Add/Edit Task</h3>
                     </div>
                     <div class="panel-body">
-                        Form to add people
+                        <legend>Add Tasks</legend>
+                        <div class="form-group">
+                            <input type="text" name="task_name" id="task_name" value="" placeholder="Enter a task here" />
+                        </div>
+
                         <button id="add_btn">Add</button>
                     </div>
                 </div>
@@ -46,22 +50,27 @@
 
             </div>
             <div class="col-md-9">
-                
+
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
-                    <div class="panel-heading">Peoples</div>
-                        <div class="panel-body">
-                            <p>Text goes here...</p>
-                        </div>
-                
-                        <!-- Table -->
-                        <table class="table">
-                            <tbody id="people_table">
-                                
-                            </tbody>
-                        </table>
+                    <div class="panel-heading">Tasks</div>
+
+                    <!-- Table -->
+                    <table class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Completed</th>
+                        </thead>
+                        <tbody id="tasks_table">
+
+                        </tbody>
+                    </table>
                 </div>
-                
+                <div>
+                    <button id="del_all_btn">Delete All</button>
+                    <button id="del_comp_btn">Delete completed</button>
+                </div>
+
             </div>
         </div>
 
