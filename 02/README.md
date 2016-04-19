@@ -244,7 +244,7 @@ Twee types hebben we al gezien, teksten `string` en getallen `Number`.
 
   NB: Het `void` keyword mag je overigens ook weglaten maar voor de compleetheid van de workshop noemen we hem toch maar.
 
-  De functies 'closeDoor' en 'openDoor' schrijf je tussen de constructor van de Main class en de 'addCar' functie.
+  De functies 'closeDoor' en 'openDoor' schrijf je in de Garage class tussen de constructor en voorafgaand de functie 'addCar'.
 
   ```javascript                  
         closeDoor() : void  {
