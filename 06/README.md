@@ -13,3 +13,6 @@ Mocht je geen todo app willen maken maar een eigen implementatie waarbij je kan 
 **TIP** Gebruik het commando 'tsc -w' om de huidige map te 'watchen' op wijzigingen in je typescript bestanden.
 
 ### Succes!
+
+#### Tip:
+Sinds versie 1.7 is TypeScript met Async/Await gekomen, check [this](https://jaxenter.com/typescript-1-7-122642.html) out!!
